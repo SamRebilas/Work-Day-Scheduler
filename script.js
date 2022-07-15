@@ -25,8 +25,18 @@ else if(hour > timeNow) {
   
 }
  
-timeInfo()
+
    
-    
+ function saveText  (){
+  textEl = (document.getElementById("userText").value)
+  localStorage.setItem("userText", textEl)
+  console.log(textEl)
+ }
 
 
+document.querySelector(".saveBtn").addEventListener("click", function(){
+  saveText()
+})
+
+
+timeInfo()
