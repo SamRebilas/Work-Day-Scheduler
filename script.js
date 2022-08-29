@@ -21,25 +21,22 @@ var editItem = function (e) {
   $(this).replaceWith(input)
 };
 $("body").on("click", ".saveBtn", save)
-$("body").on("click", ".content", editItem)
 itemEl();
 
 
 var timeEl = function (){
-$(".userText").each(function(){
-var hour = $(this).parent().attr("id")
-var timeNow = moment().hour()
-$(this).removeClass("past present future")
-if (hour < timeNow){
-$(this).addClass(".past")
-}
-else if (hour == timeNow){
- $(this).addClass(".present")
-}
-else if(hour > timeNow) {
- $(this).addClass(".future")
-}
-})
+  $("#currentDay").text(moment().format("dddd, MMMM Do"));
+  $(".content").each(function () {
+    var hours = $(this).parent().attr("id");
+    var time = moment().hour();
+    if (hours < time) {
+      $(this).addClass("past");
+    } else if (hours == time) {
+      $(this).addClass("present");
+    } else if (hours > time) {
+      $(this).addClass("future");
+    }
+  });
 }
  
 
